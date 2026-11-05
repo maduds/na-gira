@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10162b">
+<meta name="description" content="Gira a corrente, estuda 10 minutos, fala 1 minuto. Pautas, pontos e fundamentos de Umbanda para aprender junto.">
+<title>Na Gira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Plano: noite de gira. Chão azul-noite, riscos de pemba em giz branco, luz de vela dourada e contas de guia nas cores das 7 Linhas. Tema escuro único, de propósito. */
+:root{
+  --bg:#10162b;
+  --surface:#19213f;
+  --surface2:#222c52;
+  --chalk:#f3efe4;
+  --muted:#a9b0cc;
+  --line:#2f3a66;
+  --gold:#f0b43c;
+  --gold-ink:#2a1a04;
+  --display:"Bricolage Grotesque", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--chalk);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+a{color:var(--gold)}
+/* fio de contas nas cores das 7 linhas */
+.guia{height:16px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='126' height='16'%3E%3Cline x1='0' y1='8' x2='126' y2='8' stroke='%23f3efe4' stroke-opacity='.35'/%3E%3Ccircle cx='9' cy='8' r='6' fill='%23f3efe4'/%3E%3Ccircle cx='27' cy='8' r='6' fill='%235fb4d8'/%3E%3Ccircle cx='45' cy='8' r='6' fill='%23a0622f'/%3E%3Ccircle cx='63' cy='8' r='6' fill='%233a6fd0'/%3E%3Ccircle cx='81' cy='8' r='6' fill='%233fa04f'/%3E%3Ccircle cx='99' cy='8' r='6' fill='%23ef9cc0'/%3E%3Ccircle cx='117' cy='8' r='6' fill='%23f3efe4' stroke='%23000' stroke-width='3'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:center}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 16px 70px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:6px}
+.brand{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,9vw,3.8rem);line-height:.92;margin:0;letter-spacing:-.03em}
+.brand span{color:var(--gold)}
+.tag{margin:6px 0 0;color:var(--muted);font-weight:500;max-width:48ch;font-size:.97rem}
+.soundbtn{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-weight:700;font-size:.9rem}
+.soundbtn[aria-pressed="false"]{opacity:.65}
+nav.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;margin:14px -16px 0;padding:10px 16px;overflow-x:auto;scrollbar-width:none;background:rgba(16,22,43,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+nav.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-weight:700;font-size:.95rem;white-space:nowrap}
+.tab[aria-pressed="true"]{background:var(--chalk);color:var(--bg);border-color:var(--chalk)}
+.tab .n{opacity:.7;font-weight:600}
+
+h2.sec{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,6vw,2.3rem);line-height:1.05;margin:0 0 6px;letter-spacing:-.02em;text-wrap:balance}
+h3.h{font-family:var(--display);font-weight:800;font-size:1.25rem;margin:0 0 4px;letter-spacing:-.01em}
+p.sub{color:var(--muted);margin:0 0 16px;max-width:65ch}
+.note{font-size:.9rem;color:var(--muted)}
+.chips{display:flex;gap:7px;margin:14px 0 4px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.chips::-webkit-scrollbar{display:none}
+@media (min-width:821px){.chips{flex-wrap:wrap;overflow:visible}}
+.chip{flex:none;display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 13px 7px 9px;font-size:.88rem;font-weight:600;white-space:nowrap}
+.dot{flex:none;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1.5px rgba(243,239,228,.35)}
+.chip[aria-pressed="true"]{border-color:var(--chalk);box-shadow:inset 0 0 0 1px var(--chalk)}
+.chip[aria-pressed="false"]{opacity:.45}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px;align-items:stretch;margin-top:12px}
+@media (max-width:820px){.stage{grid-template-columns:1fr}}
+.gira-box{position:relative;background:radial-gradient(ellipse at 42% 68%,#2b3768 0%,#1a2246 55%,#121833 100%);border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.gira-box canvas{display:block;width:100%}
+.spin{position:absolute;left:14px;bottom:14px;border:none;background:var(--gold);color:var(--gold-ink);font-family:var(--display);font-weight:800;font-size:1.3rem;padding:13px 30px;border-radius:999px;box-shadow:0 4px 0 #a8741a,0 0 28px rgba(240,180,60,.35)}
+.spin:active{transform:translateY(3px);box-shadow:0 1px 0 #a8741a}
+.spin:disabled{opacity:.7;cursor:wait}
+.gira-hint{position:absolute;left:16px;top:13px;right:16px;font-size:.78rem;font-weight:800;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+.card{background:var(--surface);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line)}
+.card-top{height:8px;background:var(--cat,var(--gold))}
+.card-in{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.cat-label{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.topic{font-family:var(--display);font-weight:800;font-size:clamp(1.4rem,5.4vw,1.95rem);line-height:1.12;letter-spacing:-.015em;margin:10px 0 16px;text-wrap:balance;transition:opacity .3s}
+.timer{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-top:12px;border-top:2px dashed var(--line);margin-top:auto}
+.clock{font-variant-numeric:tabular-nums;font-size:2.4rem;font-weight:800;letter-spacing:-.02em}
+.phase{font-size:.95rem;color:var(--muted);font-weight:700}
+.bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin:6px 0 16px}
+.bar i{display:block;height:100%;width:0;background:var(--cat,var(--gold));transition:width .4s linear}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:2px solid var(--chalk);background:var(--chalk);color:var(--bg);border-radius:999px;padding:10px 18px;font-weight:800;font-size:.95rem}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+.btn.ghost{background:transparent;color:var(--chalk);border-color:var(--line)}
+.btn.small{padding:7px 13px;font-size:.86rem}
+.btn[aria-pressed="true"].save{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+@media (max-width:640px){.how{grid-template-columns:1fr}}
+.how div{background:var(--surface);border-radius:16px;padding:12px 15px;border:1px solid var(--line)}
+.how b{font-family:var(--display);font-weight:800;font-size:1.08rem;display:block}
+.how span{color:var(--muted);font-size:.92rem}
+
+.panel{margin-top:20px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px}
+.box + .box{margin-top:14px}
+.list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.list li{display:flex;align-items:center;gap:10px;background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:11px 12px}
+.list li .t{flex:1;min-width:0;overflow-wrap:anywhere}
+.list li .meta{font-size:.74rem;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.link{background:none;border:none;color:var(--gold);font-weight:800;font-size:.9rem;padding:6px 6px}
+.link.mute{color:var(--muted)}
+.empty{color:var(--muted);font-style:italic;background:transparent!important;border-style:dashed!important}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text],input[type=url],input[type=search],select,textarea{font:inherit;font-size:16px;color:var(--chalk);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:10px 13px}
+input[type=text],input[type=search],input[type=url]{flex:1;min-width:0}
+input[type=range]{accent-color:var(--gold)}
+select{max-width:100%}
+textarea{width:100%;min-height:150px;resize:vertical;line-height:1.5}
+label.f{display:block;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:12px 0 5px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+
+.linhas{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.linha{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 16px 16px;position:relative;overflow:hidden}
+.linha .num{position:absolute;right:12px;top:4px;font-family:var(--display);font-weight:800;font-size:3.4rem;line-height:1;color:var(--c);opacity:.9}
+.linha h3{font-family:var(--display);font-weight:800;font-size:1.2rem;margin:2px 0 10px;padding-right:44px}
+.linha dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:.92rem}
+.linha dt{color:var(--muted);font-weight:700}
+.linha dd{margin:0}
+.seven-box{margin-top:14px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.seven-box .big{font-family:var(--display);font-weight:800;font-size:6rem;line-height:.8;color:var(--gold)}
+.seven-box ul{margin:0;padding-left:18px}
+@media (max-width:560px){.seven-box{grid-template-columns:1fr}.seven-box .big{font-size:4rem}}
+
+/* Roda de Pontos */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+@media (max-width:700px){.steps{grid-template-columns:1fr 1fr}}
+.steps div{background:var(--surface2);border-radius:14px;padding:10px 12px;font-size:.88rem;color:var(--muted)}
+.steps b{display:block;color:var(--chalk);font-family:var(--display);font-weight:800;font-size:1rem}
+.rank{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.rank li{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;background:var(--surface2);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px}
+.rank li.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.rank .pos{font-family:var(--display);font-weight:800;font-size:1.3rem;text-align:center}
+.rank .nm{font-weight:800;overflow-wrap:anywhere}
+.rank .lv{font-size:.8rem;color:var(--muted);font-weight:600}
+.rank .prog{height:5px;border-radius:9px;background:var(--line);margin-top:5px;overflow:hidden}
+.rank .prog i{display:block;height:100%;background:var(--gold)}
+.rank .ax{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
+.rank .ax small{display:block;font-size:.72rem;color:var(--muted);font-weight:700}
+.rank .ax button{background:none;border:none;color:var(--muted);font-size:.78rem;font-weight:700;padding:2px 0}
+.vez{display:inline-block;background:var(--gold);color:var(--gold-ink);border-radius:999px;padding:1px 8px;font-size:.7rem;font-weight:800;margin-left:6px;vertical-align:middle}
+.game .stage-label{display:inline-block;background:var(--chalk);color:var(--bg);border-radius:999px;padding:3px 12px;font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.game h3{font-family:var(--display);font-weight:800;font-size:clamp(1.4rem,5.4vw,2rem);margin:10px 0 2px;line-height:1.1}
+.lyrics{font-size:1.12rem;line-height:1.85;margin:14px 0;background:var(--bg);border:1.5px dashed var(--line);border-radius:14px;padding:14px 16px}
+.lyrics .ln{display:block;min-height:.6em}
+.blank{display:inline-block;border:none;border-bottom:2px solid var(--gold);background:transparent;color:transparent;padding:0;margin:0 1px;line-height:1.2;cursor:pointer;vertical-align:baseline}
+.blank.shown{color:var(--gold);border-bottom-color:transparent;font-weight:800}
+.levels{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.levels::-webkit-scrollbar{display:none}
+.levels button{flex:none;border:1.5px solid var(--line);background:var(--bg);border-radius:999px;padding:7px 13px;font-weight:700;font-size:.86rem;white-space:nowrap}
+.levels button[aria-pressed="true"]{background:var(--chalk);color:var(--bg);border-color:var(--chalk)}
+.score-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+@media (max-width:560px){.score-btns{grid-template-columns:1fr}}
+.score-btns button{border:2px solid var(--line);background:var(--bg);border-radius:16px;padding:14px;font-weight:700;text-align:left}
+.score-btns button b{display:block;font-family:var(--display);font-weight:800;font-size:1.35rem;color:var(--gold)}
+.player-box{margin:12px 0;border-radius:14px;overflow:hidden;background:#000}
+.player-box iframe{display:block;width:100%;border:0}
+.listen{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;margin:12px 0}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.95rem}
+.banner{background:var(--gold);color:var(--gold-ink);border-radius:16px;padding:14px 16px;margin-bottom:14px;font-weight:700}
+.banner .btn{background:var(--gold-ink);border-color:var(--gold-ink);color:var(--gold)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--chalk);color:var(--bg);padding:11px 18px;border-radius:999px;font-weight:800;font-size:.92rem;opacity:0;pointer-events:none;transition:opacity .25s;max-width:92vw;text-align:center;z-index:20}
+.toast.on{opacity:1}
+footer{margin-top:34px;color:var(--muted);font-size:.88rem;max-width:68ch}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="guia" aria-hidden="true"></div>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1 class="brand">Na Gira<span>.</span></h1>
+      <p class="tag">Gira a corrente, estuda 10 minutos, fala 1 minuto. Pautas, pontos e fundamentos de Umbanda para aprender junto.</p>
+    </div>
+    <button class="soundbtn" id="sound" aria-pressed="true">🥁 Som ligado</button>
+  </header>
+
+  <nav class="tabs" aria-label="Seções">
+    <button class="tab" data-v="gira">Girar</button>
+    <button class="tab" data-v="pontos">Roda de Pontos</button>
+    <button class="tab" data-v="pautas">Escolher pautas</button>
+    <button class="tab" data-v="linhas">7 Linhas</button>
+    <button class="tab" data-v="salvas">Salvas <span class="n" id="saved-count"></span></button>
+  </nav>
+
+  <!-- GIRA -->
+  <section id="view-gira">
+    <div class="chips" id="chips" role="group" aria-label="Temas do sorteio"></div>
+    <div class="stage">
+      <div class="gira-box">
+        <span class="gira-hint" id="gira-hint">A corrente está pronta</span>
+        <canvas id="gira" aria-label="Filhos de santo girando em roda enquanto uma mão toca o atabaque"></canvas>
+        <button class="spin" id="spin">Girar</button>
+      </div>
+      <article class="card" id="card" aria-live="polite">
+        <div class="card-top" aria-hidden="true"></div>
+        <div class="card-in">
+          <span class="cat-label"><span class="dot" id="cat-dot"></span><span id="cat-name">Paó e atabaque</span></span>
+          <p class="topic" id="topic">O que é paó e quando se bate na sua casa?</p>
+          <div class="timer">
+            <span class="clock" id="clock">10:00</span>
+            <span class="phase" id="phase">Pronta para estudar</span>
+          </div>
+          <div class="bar"><i id="bar"></i></div>
+          <div class="actions">
+            <button class="btn gold" id="go">Começar estudo</button>
+            <button class="btn ghost" id="skip">Ir para a fala</button>
+            <button class="btn ghost" id="reset">Zerar</button>
+            <button class="btn ghost save" id="save" aria-pressed="false">♡ Salvar</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="how">
+      <div><b>1. Gira</b><span>Escolha os temas e gire a corrente. Quem parar na frente traz a pauta.</span></div>
+      <div><b>2. Estuda</b><span>10 minutos de pesquisa: livros, terreiros, vídeos, conversa com os mais velhos da casa.</span></div>
+      <div><b>3. Fala</b><span>1 minuto para explicar com as suas palavras. Pode gravar e postar.</span></div>
+    </div>
+  </section>
+
+  <!-- PONTOS -->
+  <section id="view-pontos" class="panel" hidden>
+    <div id="import-banner" class="banner" hidden></div>
+    <h2 class="sec">Roda de Pontos</h2>
+    <p class="sub">Jogo para quem está em desenvolvimento. Use o celular de quem conduz a roda: o placar de todo mundo fica nele.</p>
+    <div class="steps">
+      <div><b>1. Roda</b>Coloque o nome de quem vai cantar.</div>
+      <div><b>2. Sorteio</b>Sai um ponto para quem está na vez.</div>
+      <div><b>3. 5 minutos</b>A pessoa aprende o ponto, com áudio e treino.</div>
+      <div><b>4. Canta</b>Sem olhar. Quem conduz marca o axé.</div>
+    </div>
+
+    <div class="box">
+      <div class="row" style="justify-content:space-between">
+        <h3 class="h">Placar da roda</h3>
+        <button class="link mute" id="reset-score">Zerar placar</button>
+      </div>
+      <form id="add-player" class="row" style="margin-top:8px">
+        <input type="text" id="player-name" maxlength="30" placeholder="Nome de quem vai cantar" aria-label="Nome de quem vai cantar">
+        <button class="btn" type="submit">Entrar na roda</button>
+      </form>
+      <ol class="rank" id="rank"></ol>
+      <p class="note" style="margin:10px 0 0">Cantou inteiro vale 3 axé, com ajuda vale 2, ainda aprendendo vale 1. Níveis: Chegando na corrente, Responde o ponto (5), Puxa o ponto (12), Guardiã(o) dos pontos (24).</p>
+    </div>
+
+    <div class="box game" id="game"></div>
+
+    <div class="two" style="margin-top:14px">
+      <div class="box" style="margin-top:0">
+        <h3 class="h">Pontos da casa</h3>
+        <p class="note" style="margin-top:0">Monte a lista uma vez e mande para os irmãos de santo.</p>
+        <ul class="list" id="pontos-list" style="max-height:420px;overflow:auto"></ul>
+        <div class="row" style="margin-top:12px">
+          <button class="btn gold small" id="export">Enviar lista de pontos</button>
+          <button class="btn ghost small" id="import-open">Colar lista recebida</button>
+        </div>
+        <div id="import-box" hidden style="margin-top:10px">
+          <textarea id="import-text" placeholder="Cole aqui a mensagem que você recebeu" style="min-height:90px"></textarea>
+          <div class="row" style="margin-top:8px"><button class="btn small gold" id="import-go">Importar pontos</button></div>
+        </div>
+        <div id="export-box" hidden style="margin-top:10px">
+          <p class="note" style="margin:0 0 6px">Copie a mensagem abaixo e mande no WhatsApp:</p>
+          <textarea id="export-text" readonly style="min-height:90px" aria-label="Mensagem com a lista de pontos"></textarea>
+        </div>
+      </div>
+      <div class="box" style="margin-top:0">
+        <h3 class="h" id="form-title">Cadastrar ponto</h3>
+        <p class="note" style="margin-top:0">Escreva a letra do jeito que se canta na sua casa.</p>
+        <form id="add-ponto">
+          <label class="f" for="p-linha">Linha ou entidade</label>
+          <select id="p-linha" style="width:100%"></select>
+          <label class="f" for="p-nome">Nome do ponto</label>
+          <input type="text" id="p-nome" maxlength="80" placeholder="Ex.: Ela é Oyá" style="width:100%">
+          <label class="f" for="p-letra">Letra</label>
+          <textarea id="p-letra" placeholder="Um verso por linha"></textarea>
+          <label class="f" for="p-link">Link do áudio: YouTube, Spotify ou TikTok (opcional)</label>
+          <input type="url" id="p-link" placeholder="https://open.spotify.com/track/..." style="width:100%">
+          <div class="row" style="margin-top:14px"><button class="btn gold" type="submit" id="p-submit">Salvar ponto</button><button class="btn ghost" type="button" id="p-cancel" hidden>Cancelar edição</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAUTAS -->
+  <section id="view-pautas" class="panel" hidden>
+    <h2 class="sec">Escolher pautas</h2>
+    <p class="sub">Pegue uma pauta direto da lista ou escreva as suas. As que você cria entram no sorteio da gira.</p>
+    <div class="two">
+      <div class="box" style="margin-top:0">
+        <h3 class="h">Nova pauta</h3>
+        <form id="add-pauta">
+          <input type="text" id="new-pauta" maxlength="180" placeholder="Ex.: como é a gira de Baianos na minha casa" aria-label="Nova pauta" style="width:100%">
+          <div class="row" style="margin-top:8px">
+            <select id="new-pauta-cat" aria-label="Tema da nova pauta" style="flex:1"></select>
+            <button class="btn gold" type="submit">Adicionar</button>
+          </div>
+        </form>
+        <label class="f">Suas pautas</label>
+        <ul class="list" id="mine-list"></ul>
+      </div>
+      <div class="box" style="margin-top:0">
+        <h3 class="h">Todas as pautas</h3>
+        <div class="row" style="margin-top:6px">
+          <input type="search" id="search" placeholder="Buscar: Ogum, ervas, palma..." aria-label="Buscar pautas">
+          <select id="filter-cat" aria-label="Filtrar por tema"></select>
+        </div>
+        <ul class="list" id="all-list" style="margin-top:12px;max-height:560px;overflow:auto"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 LINHAS -->
+  <section id="view-linhas" class="panel" hidden>
+    <h2 class="sec">As 7 Linhas da Umbanda</h2>
+    <p class="sub">Uma das formas mais difundidas de organizar as 7 Linhas. Autores e casas organizam de jeitos diferentes, com outros orixás e outras cores. Confira como é no seu terreiro.</p>
+    <div class="linhas" id="linhas"></div>
+    <div class="box seven-box">
+      <div class="big" aria-hidden="true">7</div>
+      <div>
+        <h3 class="h">O número 7 na Umbanda</h3>
+        <ul>
+          <li>As 7 Linhas, cada uma com seus orixás, guias e falanges.</li>
+          <li>O Caboclo das Sete Encruzilhadas, ligado à fundação da Umbanda em 1908.</li>
+          <li>A vela de 7 dias, comum nas firmezas e pedidos.</li>
+          <li>Em várias literaturas, linhas divididas em 7 legiões e falanges.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SALVAS -->
+  <section id="view-salvas" class="panel" hidden>
+    <h2 class="sec">Pautas salvas</h2>
+    <p class="sub">Ficam guardadas neste celular.</p>
+    <ul class="list" id="saved-list"></ul>
+  </section>
+
+  <footer>
+    A Umbanda é diversa: nomes, cores, datas, toques e fundamentos mudam de casa para casa. As pautas são pontos de partida para pesquisa. Na dúvida, pergunte no seu terreiro. Axé!
+  </footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ================= DADOS ================= */
+const CATS = [
+  {id:"orixas", name:"Orixás", c:"#3a6fd0", topics:[
+    "Quem é Oxalá e por que ele é associado ao branco?",
+    "Iemanjá: como a festa de 2 de fevereiro e o Réveillon na praia se ligam a ela?",
+    "Ogum: por que ele é associado a São Jorge em boa parte do Brasil?",
+    "Oxóssi, o caçador: o que ele representa na Umbanda?",
+    "Xangô e a ideia de justiça",
+    "Iansã: ventos, raios e coragem",
+    "Oxum: águas doces, amor e prosperidade",
+    "Nanã: a orixá mais velha e o barro da criação",
+    "Obaluaê: cura, doença e a roupa de palha",
+    "Orixás como forças da natureza: o que isso quer dizer?",
+    "O que é sincretismo e como ele aparece nos orixás?",
+    "Orixá de cabeça: o que significa ser filha ou filho de um orixá?"
+  ]},
+  {id:"linhas", name:"As 7 Linhas", c:"#f3efe4", topics:[
+    "As 7 Linhas da Umbanda: o que significa a palavra linha?",
+    "Por que as 7 Linhas mudam de autor para autor e de casa para casa?",
+    "Linha de Oxalá: o que ela rege?",
+    "Linha de Iemanjá: o povo d'água e o mar como ponto de força",
+    "Linha de Xangô: justiça e pedreira",
+    "Linha de Ogum: caminhos, batalhas e demandas",
+    "Linha de Oxóssi: caboclos, matas e conhecimento",
+    "Linha das crianças (Yori): pureza e alegria",
+    "Linha das almas (Yorimá): pretos-velhos e sabedoria",
+    "O número 7 na Umbanda: onde ele aparece?",
+    "Pontos de força: por que cada linha tem seu lugar na natureza?",
+    "Falanges e legiões: como os guias se organizam dentro das linhas?"
+  ]},
+  {id:"entidades", name:"Entidades e guias", c:"#3fa04f", topics:[
+    "Entidades e guias: os trabalhadores da caridade",
+    "Pretos-velhos: quem são e o que simbolizam?",
+    "Caboclos: a presença indígena na Umbanda",
+    "Erês: a linha das crianças e a alegria na gira",
+    "Baianos: quem são e de onde vem essa linha?",
+    "Boiadeiros: o sertão dentro do terreiro",
+    "Marinheiros: por que eles chegam balançando?",
+    "Ciganos na Umbanda",
+    "Malandros e a figura de Zé Pelintra",
+    "O que é incorporação e como a Umbanda a entende?",
+    "Orixá, guia e entidade: qual a diferença?"
+  ]},
+  {id:"exu", name:"Exu e Pombagira", c:"#e0393a", topics:[
+    "Exu: por que ele é chamado de senhor dos caminhos?",
+    "Exu não é o diabo: de onde vem essa confusão?",
+    "Pombagira: história, força e preconceitos",
+    "Tranca-Ruas, Sete Encruzilhadas, Marabô: nomes e falanges de Exu",
+    "Gira de esquerda: o que acontece nela?",
+    "Por que Exu é saudado primeiro em muitas casas?",
+    "Laroyê: o que significa a saudação?",
+    "Exu Mirim: quem são?"
+  ]},
+  {id:"terreiro", name:"Terreiro por dentro", c:"#9a78d6", topics:[
+    "O terreiro por dentro: o que você vê, ouve e sente na primeira visita",
+    "O que acontece em uma gira, do começo ao fim?",
+    "Raízes e fundamentos: o que sustenta um terreiro?",
+    "O que é o congá?",
+    "Por que se usa roupa branca na gira?",
+    "Guias: o que são os colares de contas?",
+    "Bater cabeça: o que significa esse gesto?",
+    "Saravá, axé, laroyê, okê arô: saudações e significados",
+    "O cambono: o braço direito das entidades",
+    "Vocabulário de terreiro: 10 palavras que todo iniciante ouve",
+    "Médium, cambono e ogã: as funções dentro do terreiro",
+    "Firmeza: o que é firmar uma vela ou um ponto?",
+    "O que é amaci?",
+    "Desenvolvimento mediúnico: como é o caminho de um médium?",
+    "Etiqueta de visitante: como se comportar na primeira gira"
+  ]},
+  {id:"pontos", name:"Pontos", c:"#f0b43c", topics:[
+    "Ponto cantado: qual o papel da música no ritual?",
+    "Ponto de abertura e ponto de encerramento: para que servem?",
+    "Ponto de chamada e ponto de subida",
+    "Ponto riscado: o que são os desenhos feitos com pemba?",
+    "Quem puxa o ponto e como a corrente responde?",
+    "Por que a mesma letra muda de casa para casa?",
+    "Como aprender pontos mais rápido?",
+    "Pontos de defumação",
+    "Curimba: o coro e os atabaques"
+  ]},
+  {id:"pao", name:"Paó e atabaque", c:"#c27a3e", topics:[
+    "O que é paó e quando se bate na sua casa?",
+    "Como bater paó: contagem, postura e mãos",
+    "Palma de acompanhamento e paó: qual a diferença?",
+    "Rum, rumpi e lé: os três atabaques e seus papéis",
+    "Ijexá: como reconhecer o toque e acompanhar na palma?",
+    "Barravento: como reconhecer o toque?",
+    "Toque de nagô: como acompanhar na palma?",
+    "Congo e samba de caboclo: quais as diferenças?",
+    "Desafio: ouça um toque do atabaque e descubra como bater a palma",
+    "Agogô, xequerê e outros instrumentos da curimba",
+    "Por que em alguns momentos a casa não bate palma?",
+    "Quem pode tocar atabaque? Ogãs e as regras da casa"
+  ]},
+  {id:"ervas", name:"Ervas sagradas", c:"#9cc24a", topics:[
+    "Jardim dos orixás: quais ervas cada orixá rege?",
+    "Arruda: por que ela aparece tanto na proteção?",
+    "Guiné: usos e cuidados",
+    "Alecrim: a erva da alegria",
+    "Espada-de-são-jorge: da janela ao terreiro",
+    "Folhas quentes e folhas frias: o que é essa classificação?",
+    "Banho de ervas: tipos e intenções",
+    "Como cultivar ervas de axé em casa",
+    "Defumadores: ervas e resinas mais usadas"
+  ]},
+  {id:"oferendas", name:"Oferendas e comida de santo", c:"#f07a3c", topics:[
+    "Oferenda com fundamento: o que isso significa?",
+    "Oferendas e meio ambiente: como cuidar sem poluir?",
+    "Comidas de santo: o que cada uma representa?",
+    "A pipoca de Obaluaê",
+    "Canjica branca e Oxalá",
+    "Os doces de Cosme e Damião",
+    "Café e bolo para os pretos-velhos",
+    "Frutas e flores nas oferendas: escolhas e significados",
+    "Cozinha de terreiro: receitas que contam histórias"
+  ]},
+  {id:"casa", name:"Cantinho sagrado", c:"#ef9cc0", topics:[
+    "Seu cantinho sagrado: como montar um espaço de fé em casa?",
+    "Vela de 7 dias: para que serve?",
+    "Copo d'água e anjo da guarda",
+    "Defumação em casa: quando e como?",
+    "Práticas de conexão: orações e meditações do dia a dia",
+    "Imagens e símbolos no altar doméstico",
+    "Como cuidar das suas guias em casa?"
+  ]},
+  {id:"datas", name:"Datas e celebrações", c:"#5fb4d8", topics:[
+    "15 de novembro: por que é o Dia Nacional da Umbanda?",
+    "2 de fevereiro: a festa de Iemanjá",
+    "23 de abril: Ogum e São Jorge",
+    "13 de maio: por que os pretos-velhos são lembrados nessa data?",
+    "27 de setembro: Cosme e Damião e a festa dos doces",
+    "20 de janeiro: Oxóssi e São Sebastião",
+    "4 de dezembro: Iansã e Santa Bárbara",
+    "8 de dezembro: por que a data se liga a Oxum ou a Iemanjá conforme a região?",
+    "Xangô e São Jerônimo: a festa de setembro",
+    "Réveillon de branco: uma herança da Umbanda?"
+  ]},
+  {id:"raizes", name:"Raízes e vertentes", c:"#8b8fa8", topics:[
+    "Zélio de Moraes e o Caboclo das Sete Encruzilhadas (1908)",
+    "Por que a Umbanda é chamada de religião brasileira?",
+    "As raízes africanas, indígenas, católicas e espíritas da Umbanda",
+    "Umbanda e espiritismo kardecista: aproximações e diferenças",
+    "O Primeiro Congresso de Umbanda, em 1941: o que se discutiu?",
+    "De onde vem a palavra umbanda?",
+    "Uma religião, muitos caminhos: as vertentes da Umbanda",
+    "Umbanda e Candomblé: quais são as diferenças?",
+    "Omolocô, Umbanda esotérica, Umbanda Sagrada: o que muda?",
+    "Umbanda e Jurema",
+    "Por que cada terreiro tem seus próprios fundamentos?"
+  ]},
+  {id:"sociedade", name:"Umbanda e sociedade", c:"#d65a9a", topics:[
+    "21 de janeiro: Dia Nacional de Combate à Intolerância Religiosa e a história de Mãe Gilda",
+    "Racismo religioso: por que esse termo é usado?",
+    "A perseguição policial aos terreiros no século XX",
+    "Ataques a terreiros: o que diz a lei brasileira?",
+    "Mães de santo: mulheres na liderança dos terreiros",
+    "Umbanda e a população LGBTQIA+",
+    "Tombamento de terreiros como patrimônio cultural",
+    "Umbanda nos censos do IBGE: o que os números mostram?",
+    "Como falar de Umbanda nas redes sem cair em estereótipo?"
+  ]}
+];
+const CAT = Object.fromEntries(CATS.map(c=>[c.id,c]));
+
+const LINHAS7 = [
+  {n:1, name:"Linha de Oxalá", orixa:"Oxalá", cor:"Branco", c:"#f3efe4", forca:"Campos abertos", saud:"Epa Babá!"},
+  {n:2, name:"Linha de Iemanjá", orixa:"Iemanjá", cor:"Azul-claro", c:"#5fb4d8", forca:"Mar", saud:"Odoyá!"},
+  {n:3, name:"Linha de Xangô", orixa:"Xangô", cor:"Marrom", c:"#c27a3e", forca:"Pedreiras e cachoeiras", saud:"Kaô Kabecilê!"},
+  {n:4, name:"Linha de Ogum", orixa:"Ogum", cor:"Azul-escuro ou vermelho", c:"#3a6fd0", forca:"Estradas e caminhos", saud:"Ogunhê!"},
+  {n:5, name:"Linha de Oxóssi", orixa:"Oxóssi", cor:"Verde", c:"#3fa04f", forca:"Matas", saud:"Okê Arô!"},
+  {n:6, name:"Linha das Crianças", orixa:"Ibeji (Yori)", cor:"Rosa e azul", c:"#ef9cc0", forca:"Jardins e praias", saud:"Oni Beijada!"},
+  {n:7, name:"Linha das Almas", orixa:"Pretos-velhos (Yorimá)", cor:"Preto e branco", c:"#8b8fa8", forca:"Cruzeiro das almas", saud:"Adorei as almas!"}
+];
+
+const PONTO_LINHAS = [
+  ["abertura","Abertura e encerramento","#f3efe4"],["defumacao","Defumação","#b7a68c"],
+  ["oxala","Oxalá","#f3efe4"],["ogum","Ogum","#3a6fd0"],["oxossi","Oxóssi","#3fa04f"],["xango","Xangô","#c27a3e"],
+  ["iemanja","Iemanjá","#5fb4d8"],["oxum","Oxum","#f0b43c"],["iansa","Iansã","#f07a3c"],["nana","Nanã","#9a78d6"],["obaluae","Obaluaê","#c9b37d"],
+  ["caboclos","Caboclos","#3fa04f"],["pretosvelhos","Pretos-velhos","#8b8fa8"],["eres","Erês","#ef9cc0"],["baianos","Baianos","#f0b43c"],
+  ["boiadeiros","Boiadeiros","#a0622f"],["marinheiros","Marinheiros","#3a6fd0"],["ciganos","Ciganos","#d65a9a"],["malandros","Malandros","#e0393a"],
+  ["exus","Exus","#e0393a"],["pombagiras","Pombagiras","#e0393a"],["outros","Outros","#a9b0cc"]
+];
+const PL = Object.fromEntries(PONTO_LINHAS.map(([id,name,c])=>[id,{id,name,c}]));
+
+/* ================= UTIL ================= */
+const $ = id=>document.getElementById(id);
+const inFrame = (()=>{try{return window.self!==window.top}catch(e){return true}})();
+const store = {
+  get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+const esc = s=>String(s).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+const fmt = s=>{s=Math.max(0,s);const m=Math.floor(s/60),r=s%60;return `${String(m).padStart(2,"0")}:${String(r).padStart(2,"0")}`};
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let toastT; function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),2600);}
+
+let saved = store.get("nagira2-saved", []);
+let mine = store.get("nagira2-mine", []);
+let active = new Set(store.get("nagira2-cats", CATS.map(c=>c.id)));
+let current = {t:"O que é paó e quando se bate na sua casa?", cat:"pao"};
+
+/* ================= SOM (feito no navegador, pensado para celular) ================= */
+let soundOn = store.get("nagira2-sound", true);
+let actx=null, masterG=null, noiseBuf=null, silentEl=null, unlocked=false;
+function ac(){
+  if(!actx){
+    try{
+      actx=new (window.AudioContext||window.webkitAudioContext)();
+      const comp=actx.createDynamicsCompressor(); comp.threshold.value=-14; comp.ratio.value=4; comp.connect(actx.destination);
+      masterG=actx.createGain(); masterG.gain.value=1; masterG.connect(comp);
+    }catch(e){return null}
+  }
+  if(actx.state!=="running"){ try{actx.resume();}catch(e){} }
+  return actx;
+}
+function silentWavURL(){
+  // meio segundo de silêncio em WAV, usado para liberar o som no iPhone mesmo com a chave de silêncio
+  const sr=8000,n=sr/2,buf=new ArrayBuffer(44+n*2),v=new DataView(buf);
+  const w=(o,s)=>{for(let i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i));};
+  w(0,"RIFF");v.setUint32(4,36+n*2,true);w(8,"WAVE");w(12,"fmt ");v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);
+  v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,"data");v.setUint32(40,n*2,true);
+  return URL.createObjectURL(new Blob([buf],{type:"audio/wav"}));
+}
+function unlockAudio(){
+  if(!soundOn) return;
+  try{ if(navigator.audioSession) navigator.audioSession.type="playback"; }catch(e){}
+  const c=ac(); if(!c) return;
+  try{ const b=c.createBuffer(1,1,22050), s=c.createBufferSource(); s.buffer=b; s.connect(c.destination); s.start(0); }catch(e){}
+  try{
+    if(!silentEl){ silentEl=new Audio(silentWavURL()); silentEl.loop=true; silentEl.setAttribute("playsinline",""); silentEl.preload="auto"; }
+    const p=silentEl.play(); if(p&&p.catch) p.catch(()=>{});
+  }catch(e){}
+  unlocked=true;
+}
+["pointerdown","touchend","click","keydown"].forEach(ev=>document.addEventListener(ev,unlockAudio,{passive:true}));
+document.addEventListener("visibilitychange",()=>{ if(document.hidden&&silentEl) silentEl.pause(); });
+
+function nb(c){ if(noiseBuf) return noiseBuf; const b=c.createBuffer(1,c.sampleRate*.5,c.sampleRate),d=b.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=Math.random()*2-1; return noiseBuf=b; }
+// atabaque com frequências que alto-falante de celular consegue tocar
+function drum(f,vol=.8){
+  if(!soundOn) return; const c=ac(); if(!c) return; const t=c.currentTime+.01;
+  [[f,1,"sine"],[f*1.52,.45,"triangle"],[f*2.3,.18,"sine"]].forEach(([fr,a,type])=>{
+    const o=c.createOscillator(),g=c.createGain(); o.type=type;
+    o.frequency.setValueAtTime(fr*1.45,t); o.frequency.exponentialRampToValueAtTime(fr,t+.05);
+    g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(vol*a,t+.004); g.gain.exponentialRampToValueAtTime(.0001,t+.38);
+    o.connect(g).connect(masterG); o.start(t); o.stop(t+.42);
+  });
+  const n=c.createBufferSource(); n.buffer=nb(c); const bp=c.createBiquadFilter(); bp.type="bandpass"; bp.frequency.value=2200; bp.Q.value=.9;
+  const ng=c.createGain(); ng.gain.setValueAtTime(vol*.7,t); ng.gain.exponentialRampToValueAtTime(.0001,t+.06);
+  n.connect(bp).connect(ng).connect(masterG); n.start(t); n.stop(t+.08);
+}
+function bell(f,vol=.3){
+  if(!soundOn) return; const c=ac(); if(!c) return; const t=c.currentTime+.01;
+  [[f,1],[f*2.76,.4],[f*5.4,.15]].forEach(([fr,a])=>{
+    const o=c.createOscillator(),g=c.createGain(); o.type="sine"; o.frequency.value=fr;
+    g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(vol*a,t+.003); g.gain.exponentialRampToValueAtTime(.0001,t+.5);
+    o.connect(g).connect(masterG); o.start(t); o.stop(t+.55);
+  });
+}
+function shaker(vol=.18){
+  if(!soundOn) return; const c=ac(); if(!c) return; const t=c.currentTime+.01;
+  const n=c.createBufferSource(); n.buffer=nb(c); const hp=c.createBiquadFilter(); hp.type="highpass"; hp.frequency.value=5000;
+  const g=c.createGain(); g.gain.setValueAtTime(vol,t); g.gain.exponentialRampToValueAtTime(.0001,t+.06);
+  n.connect(hp).connect(g).connect(masterG); n.start(t); n.stop(t+.08);
+}
+function renderSound(){ $("sound").setAttribute("aria-pressed",soundOn); $("sound").textContent = soundOn?"🥁 Som ligado":"🔇 Som desligado"; }
+$("sound").onclick=()=>{ soundOn=!soundOn; store.set("nagira2-sound",soundOn); renderSound(); if(soundOn){unlockAudio(); drum(180,.8); setTimeout(()=>bell(880),120);} else if(silentEl) silentEl.pause(); };
+
+/* ================= GIRA (canvas) ================= */
+const cv=$("gira"), ctx=cv.getContext("2d");
+let W=700,H=520,DPR=1;
+function resize(){
+  const r=cv.getBoundingClientRect(); if(!r.width) return; DPR=Math.min(window.devicePixelRatio||1,2);
+  W=r.width; H=W*(W<520?.92:.74); cv.style.height=H+"px";
+  cv.width=Math.round(W*DPR); cv.height=Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0);
+}
+new ResizeObserver(resize).observe(cv);
+
+const SKINS=["#4a2a1a","#6b3f26","#5a3320","#3d2216","#7a4a2e","#55301d","#432516"];
+const FIGS = LINHAS7.map((l,i)=>({base:l.c, guia:l.c, alt:i===6, baseAlt:i===6, skin:SKINS[i]}));
+let rot=0, spinning=null, chosen=-1, idleSpeed=.22, lastT=performance.now(), stepAcc=0, step=0, handHit=0, twirl=0, glow=0;
+
+function figPath(x,y,s,f,ph,isChosen){
+  ctx.fillStyle="rgba(0,0,0,.35)";
+  ctx.beginPath(); ctx.ellipse(x,y+2*s,26*s,6*s,0,0,Math.PI*2); ctx.fill();
+  if(isChosen){
+    const g=ctx.createRadialGradient(x,y-40*s,4,x,y-40*s,70*s); g.addColorStop(0,`rgba(240,180,60,${.35*glow})`); g.addColorStop(1,"rgba(240,180,60,0)");
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y-40*s,70*s,0,Math.PI*2); ctx.fill();
+    ctx.strokeStyle="rgba(240,180,60,.95)"; ctx.lineWidth=3*s;
+    ctx.beginPath(); ctx.ellipse(x,y+2*s,34*s,9*s,0,0,Math.PI*2); ctx.stroke();
+  }
+  const hem=30*s*(1+.16*Math.sin(ph*2));
+  ctx.fillStyle="#fbf8f1"; ctx.strokeStyle="#cdbfa6"; ctx.lineWidth=1.2*s;
+  ctx.beginPath(); ctx.moveTo(x-9*s,y-52*s);
+  ctx.bezierCurveTo(x-14*s,y-30*s,x-hem,y-10*s,x-hem,y);
+  const sc=6; for(let k=1;k<=sc;k++){ const px=x-hem+(2*hem)*k/sc; ctx.quadraticCurveTo(px-(hem/sc),y+4*s,px,y); }
+  ctx.bezierCurveTo(x+hem,y-10*s,x+14*s,y-30*s,x+9*s,y-52*s);
+  ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.strokeStyle="rgba(170,150,120,.6)"; ctx.beginPath(); ctx.moveTo(x-hem*.7,y-12*s); ctx.quadraticCurveTo(x,y-8*s,x+hem*.7,y-12*s); ctx.stroke();
+  const arm=Math.sin(ph)*.5;
+  ctx.strokeStyle=f.skin; ctx.lineCap="round"; ctx.lineWidth=4.2*s;
+  ctx.beginPath(); ctx.moveTo(x-9*s,y-70*s); ctx.quadraticCurveTo(x-20*s,y-58*s,x-22*s-6*s*arm,y-46*s); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x+9*s,y-70*s); ctx.quadraticCurveTo(x+20*s,y-58*s,x+22*s+6*s*arm,y-46*s); ctx.stroke();
+  ctx.fillStyle="#fbf8f1"; ctx.strokeStyle="#cdbfa6"; ctx.lineWidth=1.2*s;
+  ctx.beginPath(); ctx.moveTo(x-12*s,y-74*s); ctx.quadraticCurveTo(x,y-80*s,x+12*s,y-74*s); ctx.lineTo(x+10*s,y-50*s); ctx.lineTo(x-10*s,y-50*s); ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.fillStyle=f.skin; ctx.fillRect(x-3*s,y-82*s,6*s,6*s);
+  ctx.beginPath(); ctx.arc(x,y-89*s,8.5*s,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle="#fbf8f1"; ctx.strokeStyle="#cdbfa6";
+  ctx.beginPath(); ctx.ellipse(x,y-96*s,10*s,6.5*s,0,Math.PI,0); ctx.ellipse(x+2*s,y-99*s,8*s,5*s,-.2,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  for(let k=0;k<9;k++){
+    const a=Math.PI*(.15+.7*k/8); const gx=x-Math.cos(a)*9*s, gy=y-77*s+Math.sin(a)*12*s;
+    ctx.fillStyle=f.alt?(k%2?"#fbf8f1":"#1a1412"):f.guia;
+    ctx.strokeStyle="rgba(20,15,30,.6)"; ctx.lineWidth=.8*s;
+    ctx.beginPath(); ctx.arc(gx,gy,2.2*s,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  }
+}
+function drawFloor(cx,cy,rx,ry){
+  ctx.save(); ctx.translate(cx,cy); ctx.scale(1,ry/rx);
+  ctx.strokeStyle="rgba(243,239,228,.55)"; ctx.lineWidth=2; ctx.setLineDash([4,7]);
+  ctx.beginPath(); ctx.arc(0,0,rx*1.2,0,Math.PI*2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(0,0,rx*.56,0,Math.PI*2); ctx.stroke();
+  ctx.setLineDash([]); ctx.lineWidth=2.4; ctx.strokeStyle="rgba(243,239,228,.5)";
+  ctx.beginPath();
+  for(let k=0;k<=7;k++){ const a=-Math.PI/2+k*(Math.PI*2*3/7); const px=Math.cos(a)*rx*.52, py=Math.sin(a)*rx*.52; k?ctx.lineTo(px,py):ctx.moveTo(px,py); }
+  ctx.stroke();
+  ctx.restore();
+}
+function drawCandles(cx,cy,rx,ry,t){
+  // 7 velas em volta da roda, uma para cada linha
+  for(let k=0;k<7;k++){
+    const a=k*Math.PI*2/7+Math.PI/7; const x=cx+rx*1.2*Math.sin(a), y=cy+ry*1.2*Math.cos(a);
+    if(Math.cos(a)>.55) continue; // não cobrir quem está na frente
+    const s=.7+.3*((Math.cos(a)+1)/2);
+    const fl=1+.12*Math.sin(t*9+k*2)+.06*Math.sin(t*23+k);
+    const g=ctx.createRadialGradient(x,y-16*s,1,x,y-16*s,26*s); g.addColorStop(0,"rgba(255,200,90,.45)"); g.addColorStop(1,"rgba(255,200,90,0)");
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y-16*s,26*s,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle=LINHAS7[k].c; ctx.fillRect(x-3*s,y-12*s,6*s,12*s);
+    ctx.fillStyle="#ffd36b"; ctx.beginPath(); ctx.ellipse(x,y-16*s,2.6*s,5*s*fl,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle="#fff6d8"; ctx.beginPath(); ctx.ellipse(x,y-15*s,1.2*s,2.4*s*fl,0,0,Math.PI*2); ctx.fill();
+  }
+}
+function drawAtabaque(x,base,h,w){
+  const top=base-h;
+  const g=ctx.createLinearGradient(x-w/2,0,x+w/2,0);
+  g.addColorStop(0,"#4a2610"); g.addColorStop(.45,"#a5652f"); g.addColorStop(1,"#3a1d0c");
+  ctx.fillStyle=g;
+  ctx.beginPath(); ctx.moveTo(x-w/2,top); ctx.quadraticCurveTo(x-w*.62,base-h*.55,x-w*.36,base); ctx.lineTo(x+w*.36,base); ctx.quadraticCurveTo(x+w*.62,base-h*.55,x+w/2,top); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle="#f3e2bf"; ctx.lineWidth=Math.max(1.2,w*.018);
+  const ringY=top+h*.42; ctx.beginPath();
+  for(let k=0;k<=10;k++){ const px=x-w/2+w*k/10; const yy=k%2?ringY:top+h*.06; k?ctx.lineTo(px,yy):ctx.moveTo(px,yy); }
+  ctx.stroke();
+  // pano branco amarrado (ojá)
+  const by=top+h*.56, bw=w*1.08;
+  ctx.fillStyle="#fbf8f1"; ctx.beginPath(); ctx.moveTo(x-bw/2,by); ctx.lineTo(x+bw/2,by); ctx.lineTo(x+bw/2-2,by+h*.08); ctx.lineTo(x-bw/2+2,by+h*.08); ctx.closePath(); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(x+bw*.2,by+h*.05,w*.12,h*.03,.5,0,Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(x+bw*.18,by+h*.07); ctx.quadraticCurveTo(x+bw*.3,by+h*.2,x+bw*.24,by+h*.26); ctx.lineTo(x+bw*.16,by+h*.25); ctx.quadraticCurveTo(x+bw*.2,by+h*.18,x+bw*.12,by+h*.08); ctx.fill();
+  ctx.fillStyle="#efdcb4"; ctx.strokeStyle="#7a4a22"; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.ellipse(x,top,w/2,w*.13,0,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  ctx.fillStyle="rgba(122,74,34,.18)"; ctx.beginPath(); ctx.ellipse(x,top,w*.28,w*.06,0,0,Math.PI*2); ctx.fill();
+  return top;
+}
+function drawHand(x,y,s,hit){
+  const lift=(1-hit)*26*s, hx=x, hy=y-lift;
+  const skin="#4a2817", tip="#8a5a3c", rim="rgba(255,214,160,.35)";
+  ctx.lineCap="round";
+  ctx.strokeStyle=rim; ctx.lineWidth=27*s;
+  ctx.beginPath(); ctx.moveTo(hx+30*s,hy-18*s); ctx.quadraticCurveTo(hx+80*s,hy-60*s,hx+150*s,hy-90*s); ctx.stroke();
+  ctx.strokeStyle=skin; ctx.lineWidth=24*s;
+  ctx.beginPath(); ctx.moveTo(hx+30*s,hy-18*s); ctx.quadraticCurveTo(hx+80*s,hy-60*s,hx+150*s,hy-90*s); ctx.stroke();
+  ctx.strokeStyle="#fbf8f1"; ctx.lineWidth=32*s;
+  ctx.beginPath(); ctx.moveTo(hx+95*s,hy-68*s); ctx.lineTo(hx+180*s,hy-104*s); ctx.stroke();
+  ctx.save(); ctx.translate(hx,hy); ctx.rotate(-.32);
+  ctx.fillStyle=skin; ctx.strokeStyle=rim; ctx.lineWidth=1.5*s;
+  ctx.beginPath(); ctx.ellipse(10*s,-4*s,26*s,14*s,0,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  for(let k=0;k<4;k++){ const fy=-12*s+k*7.2*s; ctx.beginPath(); ctx.ellipse(-22*s-(k===0||k===3?-3*s:0),fy,15*s,4*s,.05*(k-1.5),0,Math.PI*2); ctx.fill(); ctx.stroke(); }
+  ctx.fillStyle=tip;
+  for(let k=0;k<4;k++){ const fy=-12*s+k*7.2*s; ctx.beginPath(); ctx.ellipse(-33*s-(k===0||k===3?-3*s:0),fy+1*s,4*s,2.6*s,0,0,Math.PI*2); ctx.fill(); }
+  ctx.fillStyle=skin; ctx.beginPath(); ctx.ellipse(4*s,-18*s,13*s,4.5*s,-.5,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  ctx.restore();
+  if(hit>.55){ ctx.strokeStyle=`rgba(255,220,150,${(hit-.55)*1.8})`; ctx.lineWidth=2*s;
+    for(let k=-1;k<=1;k++){ ctx.beginPath(); ctx.moveTo(x-38*s+k*14*s,y+6*s); ctx.lineTo(x-46*s+k*18*s,y+16*s); ctx.stroke(); } }
+}
+function frame(now){
+  const dt=Math.min(.05,(now-lastT)/1000); lastT=now;
+  let speed=0;
+  if(spinning){
+    const p=Math.min(1,(now-spinning.start)/spinning.dur);
+    const e=1-Math.pow(1-p,3);
+    const prev=rot; rot=spinning.from+(spinning.to-spinning.from)*e; speed=(rot-prev)/Math.max(dt,.001);
+    const stepDur=Math.max(.09,Math.min(.34,.62/(speed+.9)));
+    stepAcc+=dt; if(stepAcc>=stepDur){ stepAcc=0; beat(step++); }
+    if(p>=1) finishSpin();
+  } else if(chosen<0 && !reduceMotion){ rot+=idleSpeed*dt; speed=idleSpeed; }
+  twirl+=dt*(2+speed*2.2);
+  handHit=Math.max(0,handHit-dt*5.5);
+  glow=chosen>=0?Math.min(1,glow+dt*2):0;
+  if(!document.hidden && $("view-gira").hidden===false) draw(now/1000);
+  requestAnimationFrame(frame);
+}
+function beat(i){
+  const k=i%8;
+  if(k===0||k===3||k===6){ drum(k===0?165:190,k===0?.95:.75); handHit=1; }
+  if(k===2||k===5) drum(260,.5);
+  if(k%2===1) drum(340,.3);
+  if(k===0||k===4) bell(k===0?880:660,.22);
+  shaker(.12);
+}
+function draw(t){
+  ctx.clearRect(0,0,W,H);
+  const narrow=W<520;
+  const cx=W*(narrow?.40:.40), cy=H*(narrow?.66:.66), rx=W*(narrow?.30:.27), ry=H*.12;
+  drawFloor(cx,cy+H*.03,rx,ry);
+  drawCandles(cx,cy+H*.03,rx,ry,t);
+  const st=Math.PI*2/7;
+  const figs=FIGS.map((f,i)=>{const th=rot+i*st; const d=(Math.cos(th)+1)/2; return {f,i,x:cx+rx*Math.sin(th),y:cy+ry*Math.cos(th),d};}).sort((a,b)=>a.y-b.y);
+  const sBase=Math.min(W/700,1.15)*(narrow?1.55:1.32);
+  figs.forEach(o=>{ const s=sBase*(.66+.44*o.d)*(o.i===chosen?1.12:1); figPath(o.x,o.y+(o.i===chosen?6*sBase:0),s,o.f,twirl+o.i*.9,o.i===chosen); });
+  const ax=W*(narrow?.86:.85), aw=W*(narrow?.2:.18), ah=H*(narrow?.5:.56);
+  const top=drawAtabaque(ax,H*1.02,ah,aw);
+  const rest=spinning||reduceMotion?0:Math.max(0,Math.sin(twirl*1.2))*.15;
+  drawHand(ax-aw*.05,top-2,Math.min(W/700,1.1)*(narrow?1.4:1.15),Math.max(handHit,rest));
+}
+requestAnimationFrame(frame);
+
+function startSpin(pick){
+  const k=Math.floor(Math.random()*7), st=Math.PI*2/7, target=-k*st;
+  const n=Math.ceil((rot+6*Math.PI-target)/(Math.PI*2));
+  FIGS.forEach(f=>{f.guia=f.base;f.alt=f.baseAlt;});
+  chosen=-1;
+  spinning={from:rot,to:target+n*Math.PI*2,start:performance.now(),dur:reduceMotion?10:4300,k,pick};
+  stepAcc=1; step=0;
+  $("gira-hint").textContent="A corrente está girando";
+}
+function finishSpin(){
+  const {k,pick}=spinning; spinning=null; chosen=k;
+  FIGS[k].guia=catColor(pick.cat); FIGS[k].alt=false;
+  drum(150,1); handHit=1; setTimeout(()=>bell(880,.3),140); setTimeout(()=>{bell(660,.3);drum(190,.8);handHit=1;},300);
+  current=pick; renderCard(); $("topic").style.opacity=1; $("spin").disabled=false;
+  $("gira-hint").textContent="Parou na frente: "+catName(pick.cat);
+}
+
+/* ================= SORTEIO E CARTÃO ================= */
+const catColor=id=>(CAT[id]||{c:"#f0b43c"}).c;
+const catName=id=>(CAT[id]||{name:"Minhas pautas"}).name;
+const pool=()=>CATS.filter(c=>active.has(c.id)).flatMap(c=>c.topics.map(t=>({t,cat:c.id}))).concat(mine.filter(m=>active.has(m.cat)));
+let lastTopic=current.t;
+$("spin").onclick=()=>{
+  unlockAudio();
+  let p=pool().filter(x=>x.t!==lastTopic); if(!p.length) p=pool();
+  if(!p.length){ toast("Escolha pelo menos um tema"); return; }
+  const pick=p[Math.floor(Math.random()*p.length)]; lastTopic=pick.t;
+  $("spin").disabled=true; resetTimer(); $("topic").style.opacity=.2;
+  startSpin(pick);
+};
+function drawChips(){
+  const box=$("chips"); box.innerHTML="";
+  const all=document.createElement("button"); all.className="chip";
+  all.setAttribute("aria-pressed",active.size===CATS.length);
+  all.innerHTML=`<span class="dot" style="background:conic-gradient(${CATS.map(c=>c.c).join(",")})"></span>Tudo`;
+  all.onclick=()=>{active=new Set(CATS.map(c=>c.id)); persistCats();};
+  box.appendChild(all);
+  CATS.forEach(cat=>{
+    const b=document.createElement("button"); b.className="chip"; b.style.setProperty("--c",cat.c);
+    b.setAttribute("aria-pressed",active.has(cat.id));
+    b.innerHTML=`<span class="dot"></span>${esc(cat.name)}`;
+    b.onclick=()=>{
+      if(active.size===CATS.length) active=new Set([cat.id]);
+      else if(active.has(cat.id)){active.delete(cat.id); if(!active.size) active=new Set(CATS.map(c=>c.id));}
+      else active.add(cat.id);
+      persistCats();
+    };
+    box.appendChild(b);
+  });
+}
+function persistCats(){store.set("nagira2-cats",[...active]); drawChips();}
+
+const RESEARCH=600, SPEAK=60;
+let phase="idle", left=RESEARCH, tick=null, paused=false;
+function renderCard(){
+  const c=catColor(current.cat);
+  $("card").style.setProperty("--cat",c);
+  $("cat-dot").style.background=c;
+  $("cat-name").textContent=catName(current.cat);
+  $("topic").textContent=current.t;
+  const s=saved.some(x=>x.t===current.t);
+  $("save").setAttribute("aria-pressed",s); $("save").textContent=s?"♥ Salva":"♡ Salvar";
+}
+function renderTimer(){
+  $("clock").textContent=fmt(left);
+  const total=phase==="speak"?SPEAK:RESEARCH;
+  $("bar").style.width=(phase==="idle"?0:phase==="done"?100:((total-left)/total)*100)+"%";
+  const L={idle:"Pronta para estudar",research:paused?"Estudo pausado":"Estudando",speak:paused?"Fala pausada":"Falando: 1 minuto, vai!",done:"Saravá! Pauta concluída"};
+  $("phase").textContent=L[phase];
+  $("go").textContent=phase==="idle"?"Começar estudo":phase==="done"?"Fazer de novo":paused?"Continuar":"Pausar";
+  $("skip").hidden=!(phase==="idle"||phase==="research");
+}
+function startPhase(p){ phase=p; left=p==="speak"?SPEAK:RESEARCH; paused=false; if(p==="speak") bell(880,.3); run(); }
+function run(){
+  clearInterval(tick);
+  tick=setInterval(()=>{
+    if(paused) return; left--;
+    if(left<=0){ if(phase==="research") startPhase("speak"); else { clearInterval(tick); phase="done"; left=0; drum(165,.9); setTimeout(()=>bell(880,.3),150);} }
+    renderTimer();
+  },1000);
+  renderTimer();
+}
+function resetTimer(){clearInterval(tick); phase="idle"; left=RESEARCH; paused=false; renderTimer();}
+$("go").onclick=()=>{ if(phase==="idle"||phase==="done") startPhase("research"); else {paused=!paused; renderTimer();} };
+$("skip").onclick=()=>startPhase("speak");
+$("reset").onclick=resetTimer;
+$("save").onclick=()=>toggleSave(current);
+function toggleSave(p){
+  const i=saved.findIndex(s=>s.t===p.t);
+  if(i>=0) saved.splice(i,1); else saved.unshift({t:p.t,cat:p.cat});
+  store.set("nagira2-saved",saved); renderCard(); renderSaved(); renderAll();
+}
+function usePauta(p){ current={t:p.t,cat:p.cat}; resetTimer(); chosen=-1; FIGS.forEach(f=>{f.guia=f.base;f.alt=f.baseAlt;}); renderCard(); show("gira"); window.scrollTo({top:0,behavior:"smooth"}); }
+
+/* ================= ESCOLHER PAUTAS ================= */
+function fillCatSelect(sel,withAll){ sel.innerHTML=(withAll?`<option value="">Todos os temas</option>`:"")+CATS.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join(""); }
+fillCatSelect($("new-pauta-cat"),false); fillCatSelect($("filter-cat"),true);
+$("add-pauta").onsubmit=e=>{
+  e.preventDefault(); const v=$("new-pauta").value.trim(); if(!v) return;
+  mine.unshift({t:v,cat:$("new-pauta-cat").value,own:true}); store.set("nagira2-mine",mine);
+  $("new-pauta").value=""; renderMine(); renderAll(); toast("Pauta adicionada ao sorteio");
+};
+function liPauta(p,opts={}){
+  const li=document.createElement("li"), s=saved.some(x=>x.t===p.t);
+  li.innerHTML=`<span class="dot" style="--c:${catColor(p.cat)}"></span><span class="t"><span class="meta">${esc(catName(p.cat))}${p.own?" · sua":""}</span><br>${esc(p.t)}</span>
+    <button class="link" data-a="use">Usar</button><button class="link mute" data-a="save" aria-label="${s?"Remover das salvas":"Salvar"}">${s?"♥":"♡"}</button>${opts.del?`<button class="link mute" data-a="del" aria-label="Remover pauta">✕</button>`:""}`;
+  li.querySelector('[data-a="use"]').onclick=()=>usePauta(p);
+  li.querySelector('[data-a="save"]').onclick=()=>toggleSave(p);
+  const dl=li.querySelector('[data-a="del"]'); if(dl) dl.onclick=opts.del;
+  return li;
+}
+function renderMine(){
+  const ul=$("mine-list"); ul.innerHTML="";
+  if(!mine.length){ ul.innerHTML='<li class="empty">Você ainda não escreveu pautas. Elas aparecem aqui e entram no sorteio.</li>'; return; }
+  mine.forEach((p,i)=>ul.appendChild(liPauta(p,{del:()=>{mine.splice(i,1);store.set("nagira2-mine",mine);renderMine();renderAll();}})));
+}
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+function renderAll(){
+  const q=norm($("search").value.trim()), fc=$("filter-cat").value;
+  const items=CATS.flatMap(c=>c.topics.map(t=>({t,cat:c.id}))).concat(mine).filter(p=>(!fc||p.cat===fc)&&(!q||norm(p.t+" "+catName(p.cat)).includes(q)));
+  const ul=$("all-list"); ul.innerHTML="";
+  if(!items.length){ ul.innerHTML='<li class="empty">Nenhuma pauta encontrada. Que tal escrever essa como uma pauta sua?</li>'; return; }
+  items.forEach(p=>ul.appendChild(liPauta(p)));
+}
+$("search").oninput=renderAll; $("filter-cat").onchange=renderAll;
+
+function renderSaved(){
+  $("saved-count").textContent=saved.length?`(${saved.length})`:"";
+  const ul=$("saved-list"); ul.innerHTML="";
+  if(!saved.length){ ul.innerHTML='<li class="empty">Nenhuma pauta salva ainda. Gire a corrente e toque em Salvar.</li>'; return; }
+  saved.forEach(p=>ul.appendChild(liPauta(p)));
+}
+
+$("linhas").innerHTML=LINHAS7.map(l=>`<article class="linha" style="--c:${l.c}"><div class="num">${l.n}</div><h3>${esc(l.name)}</h3>
+  <dl><dt>Regência</dt><dd>${esc(l.orixa)}</dd><dt>Cor</dt><dd><span class="dot" style="display:inline-block;vertical-align:-1px;margin-right:6px"></span>${esc(l.cor)}</dd><dt>Ponto de força</dt><dd>${esc(l.forca)}</dd><dt>Saudação</dt><dd>${esc(l.saud)}</dd></dl></article>`).join("");
+
+/* ================= PLAYER (YouTube, Spotify, TikTok) ================= */
+function mediaFor(url){
+  if(!url) return null;
+  try{
+    const u=new URL(url), h=u.hostname.replace(/^(www|m|music)\./,"");
+    if(h==="youtu.be"){ const id=u.pathname.slice(1).split("/")[0]; if(id) return {app:"YouTube",src:"https://www.youtube.com/embed/"+id,ratio:"16/9"}; }
+    if(h.endsWith("youtube.com")){ let id=u.searchParams.get("v"); if(!id){const m=u.pathname.match(/\/(shorts|embed|live)\/([^/?]+)/); if(m) id=m[2];} if(id) return {app:"YouTube",src:"https://www.youtube.com/embed/"+id,ratio:"16/9"}; return {app:"YouTube"}; }
+    if(h==="open.spotify.com"){ const m=u.pathname.match(/(track|album|playlist|episode)\/([A-Za-z0-9]+)/); if(m) return {app:"Spotify",src:`https://open.spotify.com/embed/${m[1]}/${m[2]}`,height:m[1]==="track"?152:352}; return {app:"Spotify"}; }
+    if(h.endsWith("tiktok.com")){ const m=u.pathname.match(/video\/(\d+)/); if(m) return {app:"TikTok",src:"https://www.tiktok.com/embed/v2/"+m[1],height:580}; return {app:"TikTok"}; }
+    return {app:"o link"};
+  }catch(e){ return null; }
+}
+function playerHTML(p,label){
+  const m=mediaFor(p.link); if(!m) return "";
+  const open=`<a class="btn ghost small" href="${esc(p.link)}" target="_blank" rel="noopener">Abrir no ${esc(m.app)} ↗</a>`;
+  if(m.src && !inFrame){
+    const style=m.ratio?`aspect-ratio:${m.ratio}`:`height:${m.height}px`;
+    return `<div class="note" style="margin-top:12px">${esc(label)}</div><div class="player-box"><iframe src="${esc(m.src)}" style="${style}" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy" title="Áudio do ponto"></iframe></div><div class="row">${open}</div>`;
+  }
+  return `<div class="listen"><span style="flex:1;min-width:160px">🎧 ${esc(label)}</span>${open}</div>`;
+}
+
+/* ================= COMPARTILHAR PONTOS ================= */
+const b64u={
+  enc(bytes){let s="";for(let i=0;i<bytes.length;i+=8192)s+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192));return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");},
+  dec(str){str=str.replace(/-/g,"+").replace(/_/g,"/");while(str.length%4)str+="=";const s=atob(str);return Uint8Array.from(s,c=>c.charCodeAt(0));}
+};
+async function pack(obj){
+  const data=new TextEncoder().encode(JSON.stringify(obj));
+  if(window.CompressionStream){ try{ const st=new Blob([data]).stream().pipeThrough(new CompressionStream("deflate-raw")); return "z"+b64u.enc(new Uint8Array(await new Response(st).arrayBuffer())); }catch(e){} }
+  return "j"+b64u.enc(data);
+}
+async function unpack(code){
+  const bytes=b64u.dec(code.slice(1));
+  if(code[0]==="z"){ const st=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw")); return JSON.parse(await new Response(st).text()); }
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+async function parseShared(text){
+  text=(text||"").trim();
+  const m=text.match(/(?:NAGIRA2:|#pontos=)([zj][A-Za-z0-9_-]+)/);
+  if(m) return await unpack(m[1]);
+  const i=text.indexOf("NAGIRA:"); // formato antigo
+  if(i>=0) return JSON.parse(text.slice(i+7).trim());
+  throw new Error("formato");
+}
+function mergePontos(arr){
+  if(!Array.isArray(arr)) throw new Error("lista");
+  let n=0;
+  arr.forEach(x=>{
+    if(!x||!x.nome||!x.letra) return;
+    const letra=String(x.letra).replace(/\\n/g,"\n");
+    if(pontos.some(p=>p.nome===x.nome&&p.letra===letra)) return;
+    pontos.push({id:newId(),linha:PL[x.linha]?x.linha:"outros",nome:String(x.nome).slice(0,80),letra,link:/^https?:\/\//i.test(x.link||"")?x.link:"",best:0,vezes:0}); n++;
+  });
+  savePontos(); renderPontos(); renderGame(); return n;
+}
+const newId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+$("export").onclick=async()=>{
+  if(!pontos.length){toast("Cadastre pelo menos um ponto antes");return;}
+  const code=await pack(pontos.map(({linha,nome,letra,link})=>({linha,nome,letra,link})));
+  const n=pontos.length, plural=n>1?"pontos":"ponto";
+  let msg, url=null;
+  if(!inFrame && /^https?:/.test(location.protocol)){
+    url=location.origin+location.pathname+"#pontos="+code;
+    msg=`🥁 Na Gira: ${n} ${plural} da nossa casa. Toque no link para receber:\n${url}`;
+    if(navigator.share){ try{ await navigator.share({title:"Pontos da casa",text:`🥁 Na Gira: ${n} ${plural} da nossa casa. Toque no link para receber:`,url}); return; }catch(e){ if(e&&e.name==="AbortError") return; } }
+  } else {
+    msg=`🥁 Na Gira: ${n} ${plural} da nossa casa.\nPara receber: abra o Na Gira, vá em Roda de Pontos, toque em "Colar lista recebida" e cole esta mensagem inteira.\n\nNAGIRA2:${code}`;
+  }
+  $("export-text").value=msg; $("export-box").hidden=false;
+  try{ await navigator.clipboard.writeText(msg); toast("Mensagem copiada. É só colar no WhatsApp"); }
+  catch(e){ $("export-text").focus(); $("export-text").select(); toast("Copie a mensagem que apareceu abaixo"); }
+};
+$("import-open").onclick=()=>{$("import-box").hidden=!$("import-box").hidden;};
+$("import-go").onclick=async()=>{
+  try{ const n=mergePontos(await parseShared($("import-text").value)); $("import-text").value=""; $("import-box").hidden=true; toast(n?`${n} ponto(s) recebido(s)`:"Esses pontos já estavam na sua lista"); }
+  catch(e){ toast("Não reconheci a mensagem. Copie de novo a mensagem inteira"); }
+};
+async function checkHashImport(){
+  if(!location.hash.startsWith("#pontos=")) return;
+  try{
+    const arr=await parseShared(location.hash); const n=Array.isArray(arr)?arr.length:0;
+    const b=$("import-banner"); b.hidden=false;
+    b.innerHTML=`<div>Você recebeu ${n} ponto(s) da casa.</div><div class="row" style="margin-top:8px"><button class="btn small" id="hb-ok">Receber pontos</button><button class="link" id="hb-no" style="color:var(--gold-ink)">Agora não</button></div>`;
+    $("hb-ok").onclick=()=>{ const k=mergePontos(arr); b.hidden=true; toast(k?`${k} ponto(s) recebido(s)`:"Esses pontos já estavam na sua lista"); };
+    $("hb-no").onclick=()=>{ b.hidden=true; };
+  }catch(e){ toast("O link de pontos está incompleto"); }
+  try{history.replaceState(null,"","#pontos");}catch(e){}
+  show("pontos");
+}
+
+/* ================= RODA DE PONTOS ================= */
+let pontos=store.get("nagira2-pontos",[]).map(p=>({...p,letra:String(p.letra||"").replace(/\\n/g,"\n")}));
+let players=store.get("nagira2-players",[]);
+let turn=store.get("nagira2-turn",0);
+let G={phase:"idle",ponto:null,left:0,level:0,tick:null,revealed:new Set(),hint:false,metro:null};
+let editing=null;
+const LEARN=300, SING=120;
+const LEVELS=[[0,"Chegando na corrente"],[5,"Responde o ponto"],[12,"Puxa o ponto"],[24,"Guardiã(o) dos pontos"]];
+const lvOf=p=>{let i=0;LEVELS.forEach((l,k)=>{if(p>=l[0])i=k;});return i;};
+
+$("p-linha").innerHTML=PONTO_LINHAS.map(([id,n])=>`<option value="${id}">${esc(n)}</option>`).join("");
+function savePontos(){store.set("nagira2-pontos",pontos);}
+function savePlayers(){store.set("nagira2-players",players);store.set("nagira2-turn",turn);}
+const who=()=>players.length?players[turn%players.length].name:"Você";
+
+$("add-player").onsubmit=e=>{e.preventDefault();const v=$("player-name").value.trim();if(!v)return;players.push({name:v,pts:0,plays:0});$("player-name").value="";savePlayers();renderRank();renderGame();};
+let resetArmed=false;
+$("reset-score").onclick=()=>{
+  if(!players.length) return;
+  if(!resetArmed){ resetArmed=true; $("reset-score").textContent="Toque de novo para zerar"; setTimeout(()=>{resetArmed=false;$("reset-score").textContent="Zerar placar";},3000); return; }
+  players.forEach(p=>{p.pts=0;p.plays=0;}); turn=0; savePlayers(); renderRank(); renderGame(); resetArmed=false; $("reset-score").textContent="Zerar placar"; toast("Placar zerado");
+};
+function renderRank(){
+  const ol=$("rank"); ol.innerHTML="";
+  if(!players.length){ ol.innerHTML='<li class="empty" style="display:block">Ninguém na roda ainda. Sem nomes, o jogo roda no modo solo e não guarda placar.</li>'; return; }
+  if(turn>=players.length) turn=0;
+  const order=players.map((p,i)=>({...p,i})).sort((a,b)=>b.pts-a.pts||a.i-b.i);
+  order.forEach((p,pos)=>{
+    const L=lvOf(p.pts), next=LEVELS[L+1], pct=next?Math.round((p.pts-LEVELS[L][0])/(next[0]-LEVELS[L][0])*100):100;
+    const medal=p.pts>0?(["🥇","🥈","🥉"][pos]||`${pos+1}º`):`${pos+1}º`;
+    const li=document.createElement("li"); if(p.i===turn) li.className="on";
+    li.innerHTML=`<span class="pos">${medal}</span>
+      <span><span class="nm">${esc(p.name)}</span>${p.i===turn?'<span class="vez">VEZ</span>':""}<br><span class="lv">${LEVELS[L][1]}</span><div class="prog"><i style="width:${pct}%"></i></div><span class="lv" style="font-size:.74rem">${next?`faltam ${next[0]-p.pts} axé para subir`:"nível máximo"}</span></span>
+      <span class="ax">${p.pts} axé<small>${p.plays||0} cantado(s)</small><button aria-label="Tirar ${esc(p.name)} da roda">✕ sair</button></span>`;
+    li.querySelector("button").onclick=()=>{players.splice(p.i,1); if(turn>=players.length) turn=0; savePlayers(); renderRank(); renderGame();};
+    ol.appendChild(li);
+  });
+}
+
+$("add-ponto").onsubmit=e=>{
+  e.preventDefault();
+  const nome=$("p-nome").value.trim(), letra=$("p-letra").value.replace(/\r/g,"").trim();
+  if(!nome||!letra){ toast("Preencha o nome e a letra do ponto"); return; }
+  let link=$("p-link").value.trim(); if(link&&!/^https?:\/\//i.test(link)) link="https://"+link;
+  if(editing){ const p=pontos.find(x=>x.id===editing); if(p){p.linha=$("p-linha").value;p.nome=nome;p.letra=letra;p.link=link;} toast("Ponto atualizado"); }
+  else { pontos.push({id:newId(),linha:$("p-linha").value,nome,letra,link,best:0,vezes:0}); toast("Ponto salvo"); }
+  savePontos(); clearForm(); renderPontos(); renderGame();
+};
+function clearForm(){ editing=null; $("p-nome").value=""; $("p-letra").value=""; $("p-link").value=""; $("form-title").textContent="Cadastrar ponto"; $("p-submit").textContent="Salvar ponto"; $("p-cancel").hidden=true; }
+$("p-cancel").onclick=clearForm;
+function renderPontos(){
+  const ul=$("pontos-list"); ul.innerHTML="";
+  if(!pontos.length){ ul.innerHTML='<li class="empty">Nenhum ponto ainda. Cadastre os que a casa mais canta, ou cole a lista que alguém mandou.</li>'; return; }
+  pontos.forEach((p,i)=>{
+    const L=PL[p.linha]||PL.outros, li=document.createElement("li");
+    li.innerHTML=`<span class="dot" style="--c:${L.c}"></span><span class="t"><span class="meta">${esc(L.name)}${p.link?" · 🎧":""}</span><br>${esc(p.nome)} <span class="stars" aria-label="${p.best} de 3 estrelas">${"★".repeat(p.best)}${"☆".repeat(3-p.best)}</span></span>
+      <button class="link" data-a="t">Treinar</button><button class="link mute" data-a="e" aria-label="Editar">✎</button><button class="link mute" data-a="d" aria-label="Remover">✕</button>`;
+    li.querySelector('[data-a="t"]').onclick=()=>{unlockAudio();startLearn(p);$("game").scrollIntoView({behavior:"smooth",block:"start"});};
+    li.querySelector('[data-a="e"]').onclick=()=>{editing=p.id;$("p-linha").value=p.linha;$("p-nome").value=p.nome;$("p-letra").value=p.letra;$("p-link").value=p.link||"";$("form-title").textContent="Editar ponto";$("p-submit").textContent="Salvar alterações";$("p-cancel").hidden=false;$("add-ponto").scrollIntoView({behavior:"smooth",block:"center"});};
+    li.querySelector('[data-a="d"]').onclick=()=>{pontos.splice(i,1);savePontos();renderPontos();renderGame();};
+    ul.appendChild(li);
+  });
+}
+
+function stopG(){ clearInterval(G.tick); G.tick=null; stopMetro(); }
+function gTimer(sec,onEnd){
+  G.left=sec; G.total=sec; clearInterval(G.tick);
+  G.tick=setInterval(()=>{ G.left--; const c=$("g-clock"); if(c) c.textContent=fmt(G.left); const b=$("g-bar"); if(b) b.style.width=((sec-G.left)/sec*100)+"%"; if(G.left<=0){clearInterval(G.tick);G.tick=null;onEnd();} },1000);
+}
+function sortearPonto(){
+  unlockAudio();
+  const f=$("g-filter"), lf=f?f.value:"";
+  let list=pontos.filter(p=>!lf||p.linha===lf);
+  if(!list.length){ toast("Nenhum ponto dessa linha cadastrado"); return; }
+  list=list.slice().sort((a,b)=>(a.best-b.best)||(a.vezes-b.vezes));
+  const top=list.slice(0,Math.max(1,Math.ceil(list.length/2)));
+  const p=top[Math.floor(Math.random()*top.length)];
+  [0,1,2,3,4,5].forEach(i=>setTimeout(()=>{drum(i%3?260:165,.7);shaker(.14);},i*110));
+  setTimeout(()=>{bell(880,.3);startLearn(p);},700);
+}
+function startLearn(p){ stopG(); G={...G,phase:"learn",ponto:p,level:0,revealed:new Set(),hint:false}; renderGame(); gTimer(LEARN,()=>{bell(880,.3);startSing();}); }
+function startSing(){ stopG(); G.phase="sing"; G.hint=false; renderGame(); drum(165,.9); gTimer(SING,()=>{G.phase="score";renderGame();}); }
+function scoreIt(n){
+  stopG(); const p=pontos.find(x=>x.id===G.ponto.id);
+  if(p){ p.best=Math.max(p.best,n); p.vezes++; savePontos(); }
+  let msg=`+${n} axé!`;
+  if(players.length){
+    const pl=players[turn%players.length], before=lvOf(pl.pts);
+    pl.pts+=n; pl.plays=(pl.plays||0)+1;
+    if(lvOf(pl.pts)>before) msg=`${pl.name} subiu de nível: ${LEVELS[lvOf(pl.pts)][1]}!`;
+    turn=(turn+1)%players.length; savePlayers();
+    msg+=` Agora é a vez de ${who()}.`;
+  }
+  drum(165,1); setTimeout(()=>bell(880,.3),120); if(n===3) setTimeout(()=>bell(1175,.3),260);
+  toast(msg); G.phase="idle"; G.ponto=null; renderRank(); renderPontos(); renderGame();
+}
+const hashWord=(i,j)=>((i*31+j*17+7)%10);
+function lyricsHTML(letra,level){
+  return letra.split("\n").map((line,i)=>{
+    if(!line.trim()) return `<span class="ln"></span>`;
+    const words=line.trim().split(/\s+/);
+    return `<span class="ln">${words.map((w,j)=>{
+      const key=i+"-"+j;
+      const hide=level===1?hashWord(i,j)<3:level===2?hashWord(i,j)<6:level===3?j>0:false;
+      if(hide&&!G.revealed.has(key)) return `<button class="blank" data-k="${key}" style="width:${Math.max(2,w.length)*.6}em" aria-label="Palavra escondida, toque para ver">${esc(w)}</button>`;
+      if(hide) return `<span class="blank shown">${esc(w)}</span>`;
+      return esc(w);
+    }).join(" ")}</span>`;
+  }).join("");
+}
+let metroBpm=96;
+function startMetro(){ clearInterval(G.metro); unlockAudio(); let i=0; G.metro=setInterval(()=>{ const k=i++%4; drum(k===0?165:k===2?220:300,k===0?.8:.45); if(k===0) bell(880,.12); },60000/metroBpm); }
+function stopMetro(){ if(G.metro){clearInterval(G.metro);G.metro=null;} const b=$("g-metro"); if(b) b.setAttribute("aria-pressed","false"); }
+
+function renderGame(){
+  const g=$("game");
+  if(G.phase==="idle"||!G.ponto){
+    const ls=[...new Set(pontos.map(p=>p.linha))];
+    g.innerHTML=`<span class="stage-label">Vez de ${esc(who())}</span>
+      <h3>${pontos.length?"Sorteie um ponto":"Cadastre os pontos da casa para começar"}</h3>
+      <p class="note">${pontos.length?`${pontos.length} ponto(s) na lista. O sorteio dá preferência aos pontos menos treinados.`:"Use o formulário abaixo, ou cole a lista que alguém da casa mandou."}</p>
+      ${pontos.length?`<div class="row" style="margin-top:12px"><select id="g-filter" aria-label="Linha do ponto" style="flex:1"><option value="">Todas as linhas</option>${ls.map(id=>`<option value="${id}">${esc((PL[id]||PL.outros).name)}</option>`).join("")}</select><button class="btn gold" id="g-sort">Sortear ponto</button></div>`:""}`;
+    const b=$("g-sort"); if(b) b.onclick=sortearPonto;
+    return;
+  }
+  const p=G.ponto, L=PL[p.linha]||PL.outros;
+  const head=`<div class="row" style="justify-content:space-between"><span class="stage-label">${G.phase==="learn"?"Aprender":G.phase==="sing"?"Cantar":"Como foi?"} · ${esc(who())}</span><span class="cat-label"><span class="dot" style="--c:${L.c}"></span>${esc(L.name)}</span></div><h3>${esc(p.nome)}</h3>`;
+  if(G.phase==="learn"){
+    g.innerHTML=head+`
+      <div class="timer" style="border-top:none;padding-top:4px"><span class="clock" id="g-clock">${fmt(G.left||LEARN)}</span><span class="phase">5 minutos para aprender</span></div>
+      <div class="bar"><i id="g-bar" style="background:var(--gold)"></i></div>
+      ${playerHTML(p,"Ouça o ponto enquanto aprende")}
+      <div class="levels" role="group" aria-label="Treino de memória">
+        ${["Ver tudo","Esconder algumas","Esconder metade","Só o começo"].map((t,i)=>`<button data-l="${i}" aria-pressed="${G.level===i}">${t}</button>`).join("")}
+      </div>
+      <div class="lyrics" id="g-lyrics">${lyricsHTML(p.letra,G.level)}</div>
+      <div class="row">
+        <button class="btn ghost small" id="g-metro" aria-pressed="false">🥁 Atabaque de apoio</button>
+        <label class="note" for="g-bpm">Andamento</label><input type="range" id="g-bpm" min="60" max="150" value="${metroBpm}" style="width:110px">
+      </div>
+      <div class="actions" style="margin-top:14px"><button class="btn gold" id="g-ready">Já sei! Cantar agora</button><button class="btn ghost" id="g-quit">Sair</button></div>`;
+    g.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{G.level=+b.dataset.l;G.revealed=new Set();$("g-lyrics").innerHTML=lyricsHTML(p.letra,G.level);bindBlanks();g.querySelectorAll("[data-l]").forEach(x=>x.setAttribute("aria-pressed",x===b));});
+    bindBlanks();
+    $("g-metro").onclick=e=>{ if(G.metro) stopMetro(); else { startMetro(); e.currentTarget.setAttribute("aria-pressed","true"); } };
+    $("g-bpm").oninput=e=>{ metroBpm=+e.target.value; if(G.metro){ startMetro(); $("g-metro").setAttribute("aria-pressed","true"); } };
+    $("g-ready").onclick=startSing; $("g-quit").onclick=()=>{stopG();G.phase="idle";renderGame();};
+  } else if(G.phase==="sing"){
+    const first=p.letra.split("\n").find(l=>l.trim())||"";
+    g.innerHTML=head+`
+      <div class="timer" style="border-top:none;padding-top:4px"><span class="clock" id="g-clock">${fmt(G.left||SING)}</span><span class="phase">Cante sem olhar! A corrente responde.</span></div>
+      <div class="bar"><i id="g-bar" style="background:var(--gold)"></i></div>
+      <div class="lyrics" style="text-align:center;font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--muted)">${G.hint?esc(first):"A letra está escondida"}</div>
+      <div class="actions"><button class="btn gold" id="g-done">Terminei de cantar</button>${G.hint?"":`<button class="btn ghost" id="g-hint">Me dá uma dica</button>`}</div>`;
+    $("g-done").onclick=()=>{stopG();G.phase="score";renderGame();};
+    const h=$("g-hint"); if(h) h.onclick=()=>{G.hint=true;renderGame();};
+  } else {
+    g.innerHTML=head+`<p class="note">Quem conduz a roda marca como foi. Todo mundo ganha axé por tentar.</p>
+      ${playerHTML(p,"Ouça de novo para conferir se cantou certo")}
+      <details style="margin:8px 0"><summary class="note" style="cursor:pointer">Ver a letra para conferir</summary><div class="lyrics">${lyricsHTML(p.letra,0)}</div></details>
+      <div class="score-btns">
+        <button data-s="3"><b>+3 axé</b>Cantou inteiro</button>
+        <button data-s="2"><b>+2 axé</b>Cantou com ajuda</button>
+        <button data-s="1"><b>+1 axé</b>Ainda aprendendo</button>
+      </div>`;
+    g.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>scoreIt(+b.dataset.s));
+  }
+}
+function bindBlanks(){ document.querySelectorAll("#g-lyrics .blank[data-k]").forEach(b=>b.onclick=()=>{G.revealed.add(b.dataset.k);b.classList.add("shown");b.removeAttribute("data-k");b.style.width="";b.onclick=null;}); }
+
+/* ================= ABAS ================= */
+const VIEWS=["gira","pautas","pontos","linhas","salvas"];
+function show(v){
+  if(!VIEWS.includes(v)) v="gira";
+  VIEWS.forEach(x=>$("view-"+x).hidden=x!==v);
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-pressed",t.dataset.v===v));
+  try{ if(!location.hash.startsWith("#pontos=")) history.replaceState(null,"","#"+v); }catch(e){}
+  if(v==="gira") requestAnimationFrame(resize);
+}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>show(t.dataset.v));
+window.addEventListener("hashchange",()=>{ if(location.hash.startsWith("#pontos=")) checkHashImport(); else show(location.hash.slice(1)); });
+
+renderSound(); drawChips(); renderCard(); renderTimer(); renderMine(); renderAll(); renderSaved();
+renderRank(); renderPontos(); renderGame();
+show((location.hash.slice(1)||"gira").split("=")[0]); resize();
+checkHashImport();
+</script>
+</body>
+</html>
